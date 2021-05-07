@@ -12,3 +12,4 @@ xterm
 nano
 live-boot
 systemd-sysv
+firefox
