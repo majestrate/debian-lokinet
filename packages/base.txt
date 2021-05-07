@@ -1,0 +1,14 @@
+network-manager
+net-tools
+wireless-tools
+wpagui
+curl
+openssh-client
+openbox
+xserver-xorg-core
+xserver-xorg
+xinit
+xterm
+nano
+live-boot
+systemd-sysv
