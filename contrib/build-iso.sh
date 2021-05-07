@@ -3,7 +3,7 @@ set -x
 
 test $(whoami) = root || exit 1
 
-source ./contrib/var.sh
+source ./contrib/vars.sh
 
 mkdir -p ${build}/{staging/{EFI/boot,boot/grub/x86_64-efi,isolinux,live},tmp}
 mksquashfs \

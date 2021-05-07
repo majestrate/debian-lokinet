@@ -4,7 +4,7 @@ wireless-tools
 wpagui
 curl
 openssh-client
-openbox
+lxde
 xserver-xorg-core
 xserver-xorg
 xinit
