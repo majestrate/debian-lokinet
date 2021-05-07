@@ -19,3 +19,7 @@ After build the iso will be located in the root of the repo at `debian-lokinet.i
 
 To install additional packages, add lines to `packages/custom.txt` containing the package name one per line
 
+To clean up the workspace do:
+
+    $ sudo ./contrib/clean.sh
+
