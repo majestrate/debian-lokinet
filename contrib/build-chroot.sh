@@ -15,6 +15,9 @@ debootstrap \
     $build/chroot \
     http://ftp.us.debian.org/debian/
 
+
+echo "lokinet-live" > $build/chroot/etc/hostname
+
 mkdir -p $build/chroot/etc/apt/trusted.gpg.d
 curl -so "$build/chroot/etc/apt/trusted.gpg.d/oxen.gpg" https://deb.oxen.io/pub.gpg
 
