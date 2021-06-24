@@ -13,4 +13,5 @@ nano
 live-boot
 systemd-sysv
 firefox-esr
+resolvconf
 dnscrypt-proxy
