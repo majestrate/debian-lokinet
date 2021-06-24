@@ -26,6 +26,9 @@ cat << 'EOF' > "$build/chroot/etc/apt/sources.list.d/oxen.list"
 deb https://deb.oxen.io buster main
 EOF
 
+mkdir -p "$build/chroot/etc/dnscrypt-proxy"
+cp custom/dnscrypt-proxy/{dnscrypt-proxy.toml,forwarding.txt} "$build/chroot/etc/dnscrypt-proxy"
+
 cat << 'EOF' > "$build/chroot/install.sh" 
 #!/usr/bin/env bash
 export DEBIAN_FRONTEND=noninteractive
@@ -43,4 +46,4 @@ chroot "$build/chroot" /install.sh
 rm -f "$build/chroot/install.sh" "$build/chroot/packages.txt"
 
 mkdir -p $build/chroot/var/lib/lokinet/conf.d
-cp custom/exit.ini $build/chroot/var/lib/lokinet/conf.d/exit.ini
+cp custom/lokinet/*.ini $build/chroot/var/lib/lokinet/conf.d
