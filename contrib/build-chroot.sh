@@ -34,10 +34,18 @@ apt update && xargs apt install -q --no-install-recommends -y < /packages.txt
 adduser guy --quiet --disabled-password --gecos ""
 chpasswd <<<"root:root"
 chpasswd <<<"guy:guy"
+
 EOF
 
 echo "linux-image-$arch" > "$build/chroot/packages.txt"
 cat packages/*.txt >> "$build/chroot/packages.txt"
+
+if [ -e packages/*.deb ] ; then
+    mkdir -p "$build/chroot/tmp/debs"
+    cp packages/*.deb "$build/chroot/tmp/debs"
+    echo 'for f in /tmp/debs/*.deb ; do dpkg -i "$f" ; done' >> "$build/chroot/install.sh"
+    echo 'rm -rf /tmp/debs' >> "$build/chroot/install.sh"
+fi
 chmod +x "$build/chroot/install.sh"
 chroot "$build/chroot" /install.sh
 rm -f "$build/chroot/install.sh" "$build/chroot/packages.txt"
