@@ -26,11 +26,11 @@ cat << 'EOF' > "$build/chroot/etc/apt/sources.list.d/oxen.list"
 deb https://deb.oxen.io buster main
 EOF
 
-cat << 'EOF' > "$build/chroot/install.sh" 
+cat << 'EOF' > "$build/chroot/install.sh"
 #!/usr/bin/env bash
 export DEBIAN_FRONTEND=noninteractive
 apt install -q -y ca-certificates
-apt update && xargs apt install -q --no-install-recommends -y < /packages.txt 
+apt update && xargs apt install -q --no-install-recommends -y < /packages.txt
 adduser guy --quiet --disabled-password --gecos ""
 chpasswd <<<"root:root"
 chpasswd <<<"guy:guy"
@@ -40,12 +40,14 @@ EOF
 echo "linux-image-$arch" > "$build/chroot/packages.txt"
 cat packages/*.txt >> "$build/chroot/packages.txt"
 
-if [ -e packages/*.deb ] ; then
-    mkdir -p "$build/chroot/tmp/debs"
-    cp packages/*.deb "$build/chroot/tmp/debs"
-    echo 'for f in /tmp/debs/*.deb ; do dpkg -i "$f" ; done' >> "$build/chroot/install.sh"
-    echo 'rm -rf /tmp/debs' >> "$build/chroot/install.sh"
-fi
+mkdir -p "$build/chroot/tmp/debs"
+echo 'for f in /tmp/debs/*.deb ; do dpkg -i "$f" ; done' >> "$build/chroot/install.sh"
+echo 'rm -rf /tmp/debs' >> "$build/chroot/install.sh"
+
+for f in packages/*.deb ; do
+    cp "$f" "$build/chroot/tmp/debs"
+done
+
 chmod +x "$build/chroot/install.sh"
 chroot "$build/chroot" /install.sh
 rm -f "$build/chroot/install.sh" "$build/chroot/packages.txt"
