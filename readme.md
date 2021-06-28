@@ -16,6 +16,10 @@ Now we build the iso:
     
 After build the iso will be located in the root of the repo at `debian-lokinet.iso`
 
+To generate a release torrent of the current build:
+
+    $ ./contrib/release.sh
+
 
 To install additional packages, add lines to `packages/custom.txt` containing the package name one per line or drop the deb into `packages/`
 
@@ -24,3 +28,7 @@ To clean up the workspace do:
 
     $ sudo ./contrib/clean.sh
 
+
+## using
+
+download the latest iso via bittorrent on the release page
