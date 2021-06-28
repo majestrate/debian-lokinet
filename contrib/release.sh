@@ -12,5 +12,5 @@ echo "users:" >> $out/readme.txt
 echo "guy:guy" >> $out/readme.txt
 echo "root:root" >> $out/readme.txt
 
-tar -cJvf $out.tar.xz $out
+XZ_OPT='-T0' tar -cJvf $out.tar.xz $out
 mktorrent -a https://opentracker.i2p.rocks/announce $out.tar.xz
