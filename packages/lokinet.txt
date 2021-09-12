@@ -1,3 +1,2 @@
 lokinet
-lokinet-gui
 lokinetmon
