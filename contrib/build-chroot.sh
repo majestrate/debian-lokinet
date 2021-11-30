@@ -23,7 +23,7 @@ curl -so "$build/chroot/etc/apt/trusted.gpg.d/oxen.gpg" https://deb.oxen.io/pub.
 
 mkdir -p "$build/chroot/etc/apt/sources.list.d"
 cat << 'EOF' > "$build/chroot/etc/apt/sources.list.d/oxen.list"
-deb https://deb.oxen.io bullseye main
+deb http://deb.loki bullseye main
 EOF
 
 cat << 'EOF' > "$build/chroot/install.sh"
