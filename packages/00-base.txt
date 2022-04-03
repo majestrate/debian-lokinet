@@ -2,7 +2,6 @@ network-manager
 net-tools
 wireless-tools
 wpagui
-curl
 openssh-client
 lxde
 xserver-xorg-core
@@ -12,6 +11,5 @@ xterm
 nano
 live-boot
 systemd-sysv
-firefox-esr
 resolvconf
 dnscrypt-proxy
