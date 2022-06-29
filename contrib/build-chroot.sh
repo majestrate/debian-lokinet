@@ -30,7 +30,7 @@ apt update
 apt install -q -y ca-certificates apt-transport-https curl
 /install-repos.sh
 /install-debs.sh
-apt update && xargs apt install -q -y --no-recommends < /base.txt
+apt update && xargs apt install -q -y --no-install-recommends < /base.txt
 apt update && xargs apt install -q -y < /packages.txt
 adduser guy --quiet --disabled-password --gecos ""
 chpasswd <<<"guy:guy"
