@@ -51,18 +51,23 @@ chmod +x "$build/chroot/install-debs.sh"
 echo '#!/bin/bash' > "$build/chroot/install-repos.sh"
 
 # deb.oxen.io repo
-
 echo 'curl -so /etc/apt/trusted.gpg.d/oxen.gpg https://deb.oxen.io/pub.gpg' >> "$build/chroot/install-repos.sh"
 echo 'cat << "EOF" > etc/apt/sources.list.d/oxen.list' >> "$build/chroot/install-repos.sh"
 echo 'deb https://deb.oxen.io bullseye main' >> "$build/chroot/install-repos.sh"
 echo 'EOF' >> "$build/chroot/install-repos.sh"
 
 # brave repo
-
 echo 'curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg' >> "$build/chroot/install-repos.sh"
 echo 'cat << "EOF" > /etc/apt/sources.list.d/brave.list' >> "$build/chroot/install-repos.sh"
 echo 'deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main' >> "$build/chroot/install-repos.sh"
 echo 'EOF' >> "$build/chroot/install-repos.sh"
+
+# librewolf repo
+echo 'curl -fsSLo /usr/share/keyrings/librewolf-keyring.gpg https://deb.librewolf.net/keyring.gpg' >> "$build/chroot/install-repos.sh"
+echo 'cat << "EOF" > /etc/apt/sources.list.d/librewolf.list' >> "$build/chroot/install-repos.sh"
+echo "deb [signed-by=/usr/share/keyrings/librewolf-keyring.gpg arch=amd64] https://deb.librewolf.net $release main" >> "$build/chroot/install-repos.sh"
+echo 'EOF' >> "$build/chroot/install-repos.sh"
+
 chmod +x "$build/chroot/install-repos.sh"
 
 for f in packages/*.deb ; do
