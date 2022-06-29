@@ -1,3 +1,4 @@
 lokinet
 lokinetmon
 session-desktop
+oxen-electron-wallet
