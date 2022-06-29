@@ -3,13 +3,14 @@ net-tools
 wireless-tools
 wpagui
 openssh-client
-lxde
+lxqt
 xserver-xorg-core
 xserver-xorg
 xinit
-xterm
 nano
 live-boot
 systemd-sysv
 resolvconf
 dnscrypt-proxy
+htop
+sudo

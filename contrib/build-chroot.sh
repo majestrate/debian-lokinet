@@ -32,8 +32,8 @@ apt install -q -y ca-certificates apt-transport-https curl
 /install-debs.sh
 apt update && xargs apt install -q --no-install-recommends -y < /packages.txt
 adduser guy --quiet --disabled-password --gecos ""
-chpasswd <<<"root:root"
 chpasswd <<<"guy:guy"
+gpasswd -a guy sudo
 apt clean
 EOF
 
