@@ -49,7 +49,7 @@ wget https://github.com/FreeTubeApp/FreeTube/releases/download/v0.16.0-beta/free
 mkdir -p "$build/chroot/tmp/debs"
 echo '#!/bin/bash' > "$build/chroot/install-debs.sh"
 echo 'test $(find /tmp/debs/ | grep \\.deb$ -c ) != 0 || exit 0' >> "$build/chroot/install-debs.sh"
-echo 'for f in /tmp/debs/*.deb ; do dpkg -i "$f" ; done' >> "$build/chroot/install-debs.sh"
+echo 'for f in /tmp/debs/*.deb ; do apt install "$f" ; done' >> "$build/chroot/install-debs.sh"
 echo 'rm -rf /tmp/debs' >> "$build/chroot/install-debs.sh"
 echo 'apt install -q -y -f' >> "$build/chroot/install-debs.sh"
 chmod +x "$build/chroot/install-debs.sh"

@@ -1,3 +1,2 @@
 brave-browser
 librewolf
-webext-ublock-origin
