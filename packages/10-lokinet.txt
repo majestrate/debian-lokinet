@@ -1,4 +1,5 @@
 lokinet
+lokinet-gui
 lokinetmon
 session-desktop
 oxen-electron-wallet
