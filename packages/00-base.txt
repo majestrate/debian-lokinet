@@ -6,7 +6,7 @@ openssh-client
 lxqt
 xserver-xorg-core
 xserver-xorg
-xinit
+lightdm
 nano
 live-boot
 systemd-sysv
