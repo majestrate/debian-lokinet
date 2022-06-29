@@ -21,7 +21,7 @@ To generate a release torrent of the current build:
     $ ./contrib/release.sh
 
 
-To install additional packages, add lines to `packages/custom.txt` containing the package name one per line or drop the deb into `packages/`
+To install additional packages, add lines to `packages/99-custom.txt` containing the package name one per line or drop the deb into `packages/`
 
 
 To clean up the workspace do:
