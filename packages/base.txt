@@ -10,3 +10,6 @@ resolvconf
 dnscrypt-proxy
 htop
 sudo
+ca-certificates
+apt-transport-https
+curl

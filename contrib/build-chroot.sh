@@ -26,12 +26,10 @@ cat << 'EOF' > "$build/chroot/install.sh"
 set -x
 set +e
 export DEBIAN_FRONTEND=noninteractive
-apt update
-apt install -q -y ca-certificates apt-transport-https curl
-/install-repos.sh
-/install-debs.sh
 apt update && xargs apt install -q -y --no-install-recommends < /base.txt
+/install-repos.sh
 apt update && xargs apt install -q -y < /packages.txt
+/install-debs.sh
 adduser guy --quiet --disabled-password --gecos ""
 chpasswd <<<"guy:guy"
 gpasswd -a guy sudo
