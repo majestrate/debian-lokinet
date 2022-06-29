@@ -13,4 +13,4 @@ echo "guy:guy" >> $out/readme.txt
 echo "root:root" >> $out/readme.txt
 
 XZ_OPT='-T0' tar -cJvf $out.tar.xz $out
-mktorrent -a udp://open.stealth.si:80/announce $out.tar.xz
+mktorrent -a udp://open.stealth.si:80/announce -a https://opentracker.i2p.rocks/announce $out.tar.xz
