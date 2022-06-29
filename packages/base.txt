@@ -3,10 +3,6 @@ net-tools
 wireless-tools
 wpagui
 openssh-client
-lxqt
-xserver-xorg-core
-xserver-xorg
-lightdm
 nano
 live-boot
 systemd-sysv

@@ -30,15 +30,17 @@ apt update
 apt install -q -y ca-certificates apt-transport-https curl
 /install-repos.sh
 /install-debs.sh
-apt update && xargs apt install -q --no-install-recommends -y < /packages.txt
+apt update && xargs apt install -q -y --no-recommends < /base.txt
+apt update && xargs apt install -q -y < /packages.txt
 adduser guy --quiet --disabled-password --gecos ""
 chpasswd <<<"guy:guy"
 gpasswd -a guy sudo
 apt clean
 EOF
 
-echo "linux-image-$arch" > "$build/chroot/packages.txt"
-cat packages/*.txt >> "$build/chroot/packages.txt"
+echo "linux-image-$arch" > "$build/chroot/base.txt"
+cat packages/base.txt >> "$build/chroot/base.txt"
+cat packages/*-*.txt > "$build/chroot/packages.txt"
 
 mkdir -p "$build/chroot/tmp/debs"
 echo '#!/bin/bash' > "$build/chroot/install-debs.sh"
@@ -76,7 +78,7 @@ done
 
 chmod +x "$build/chroot/install.sh"
 chroot "$build/chroot" /install.sh
-rm -f "$build/chroot/install.sh" "$build/chroot/install-debs.sh" "$build/chroot/install-repos.sh" "$build/chroot/packages.txt"
+rm -f "$build/chroot/install.sh" "$build/chroot/install-debs.sh" "$build/chroot/install-repos.sh" "$build/chroot/packages.txt" "$build/chroot/base.txt"
 
 mkdir -p $build/chroot/var/lib/lokinet/conf.d
 cp custom/lokinet/*.ini $build/chroot/var/lib/lokinet/conf.d
