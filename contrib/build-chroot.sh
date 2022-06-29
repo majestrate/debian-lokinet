@@ -42,6 +42,10 @@ echo "linux-image-$arch" > "$build/chroot/base.txt"
 cat packages/base.txt >> "$build/chroot/base.txt"
 cat packages/*-*.txt > "$build/chroot/packages.txt"
 
+# loose debs
+wget https://github.com/FreeTubeApp/FreeTube/releases/download/v0.16.0-beta/freetube_0.16.0_amd64.deb -O packages/freetube.deb
+
+
 mkdir -p "$build/chroot/tmp/debs"
 echo '#!/bin/bash' > "$build/chroot/install-debs.sh"
 echo 'test $(find /tmp/debs/ | grep \\.deb$ -c ) != 0 || exit 0' >> "$build/chroot/install-debs.sh"
