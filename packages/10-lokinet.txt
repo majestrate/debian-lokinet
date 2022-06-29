@@ -3,3 +3,4 @@ lokinet-gui
 lokinetmon
 session-desktop
 oxen-electron-wallet
+python3-geoip
