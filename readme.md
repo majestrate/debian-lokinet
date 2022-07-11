@@ -2,7 +2,7 @@
 
 repo for building a debian iso with lokinet preinstalled.
 
-## :warning: builds of this may consume your first born child at this phase of development :warning:
+### :warning: builds of this may consume your first born child at this phase of development :warning:
 
 users are advised to not use this for mission critical use cases until hardening has been added and audited.
 
