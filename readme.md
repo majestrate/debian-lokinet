@@ -1,5 +1,7 @@
 # debian lokinet
 
+:warning: builds of this may consume your first born child, use at your own risk :warning:
+
 repo for building a debian iso with lokinet preinstalled.
 
 ## building
