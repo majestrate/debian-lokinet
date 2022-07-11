@@ -6,7 +6,7 @@ test $(whoami) = root || exit 1
 
 source ./contrib/vars.sh
 
-mkdir -p "${build}"
+mkdir -p "$build/chroot/tmp/debs"
 
 debootstrap \
     --arch=$arch \
@@ -41,7 +41,7 @@ cat packages/base.txt >> "$build/chroot/base.txt"
 cat packages/*-*.txt > "$build/chroot/packages.txt"
 
 # loose debs
-wget https://github.com/FreeTubeApp/FreeTube/releases/download/v0.16.0-beta/freetube_0.16.0_amd64.deb -O packages/freetube.deb
+wget https://github.com/FreeTubeApp/FreeTube/releases/download/v0.16.0-beta/freetube_0.16.0_amd64.deb -O "$build/chroot/tmp/debs/freetube.deb"
 
 
 mkdir -p "$build/chroot/tmp/debs"
@@ -73,11 +73,6 @@ echo "deb [signed-by=/usr/share/keyrings/librewolf-keyring.gpg arch=amd64] https
 echo 'EOF' >> "$build/chroot/install-repos.sh"
 
 chmod +x "$build/chroot/install-repos.sh"
-
-for f in packages/*.deb ; do
-    cp "$f" "$build/chroot/tmp/debs"
-done
-
 chmod +x "$build/chroot/install.sh"
 chroot "$build/chroot" /install.sh
 rm -f "$build/chroot/install.sh" "$build/chroot/install-debs.sh" "$build/chroot/install-repos.sh" "$build/chroot/packages.txt" "$build/chroot/base.txt"
