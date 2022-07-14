@@ -35,4 +35,4 @@ To clean up the workspace do:
 
 ## using
 
-download the latest iso via bittorrent on the [release page](https://github.com/majestrate/debian-lokinet/release)
+download the latest iso via bittorrent on the [release page](https://github.com/majestrate/debian-lokinet/releases)
